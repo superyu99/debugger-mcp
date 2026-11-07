@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "debugger": {
+      "type": "stdio",
+      "command": "ABSOLUTE_PATH_TO_PYTHON",
+      "args": ["-m", "debugger_mcp"]
+    }
+  }
+}

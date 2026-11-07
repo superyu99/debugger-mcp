@@ -1,0 +1,11 @@
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+.build/
+build/
+dist/
+.venv/
+.venv-test/
+god_run_artifacts/
+.vscode/*.local.json

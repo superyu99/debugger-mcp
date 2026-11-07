@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Demo through Debugger MCP",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/demo.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "debugServer": 4711,
+      "env": {
+        "DEBUGGER_MCP_WORKSPACE": "${workspaceFolder}"
+      }
+    }
+  ]
+}
