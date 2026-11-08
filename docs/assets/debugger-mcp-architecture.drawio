@@ -1,0 +1,69 @@
+<mxfile host="app.diagrams.net"><diagram id="page-1" name="Page-1"><mxGraphModel dx="1200" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="800" adaptiveColors="auto">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+    <mxCell id="title" value="debugger-mcp Architecture" style="text;html=1;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#1F2937;" vertex="1" parent="1">
+      <mxGeometry x="400" y="20" width="400" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="agent-zone" value="Agent / MCP Frontends" style="swimlane;startSize=32;rounded=1;fillColor=#EAF2FF;strokeColor=#6C8EBF;fontColor=#1F3A5F;fontStyle=1;html=1;container=1;pointerEvents=0;" vertex="1" parent="1">
+      <mxGeometry x="40" y="90" width="330" height="210" as="geometry"/>
+    </mxCell>
+    <mxCell id="agent-a" value="Claude / Cursor A&lt;br&gt;&lt;font color=&quot;#64748B&quot;&gt;workspace A&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6C8EBF;fontColor=#1F2937;" vertex="1" parent="agent-zone">
+      <mxGeometry x="35" y="55" width="260" height="55" as="geometry"/>
+    </mxCell>
+    <mxCell id="agent-b" value="Claude / Cursor B&lt;br&gt;&lt;font color=&quot;#64748B&quot;&gt;workspace B&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6C8EBF;fontColor=#1F2937;" vertex="1" parent="agent-zone">
+      <mxGeometry x="35" y="130" width="260" height="55" as="geometry"/>
+    </mxCell>
+    <mxCell id="debug-zone" value="VSCode / Cursor Debug Sessions" style="swimlane;startSize=32;rounded=1;fillColor=#FFF4E8;strokeColor=#D79B00;fontColor=#6B4700;fontStyle=1;html=1;container=1;pointerEvents=0;" vertex="1" parent="1">
+      <mxGeometry x="40" y="350" width="330" height="250" as="geometry"/>
+    </mxCell>
+    <mxCell id="debug-a" value="Workspace A&lt;br&gt;&lt;font color=&quot;#64748B&quot;&gt;root + worker sessions&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D79B00;fontColor=#1F2937;" vertex="1" parent="debug-zone">
+      <mxGeometry x="35" y="60" width="260" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="debug-b" value="Workspace B&lt;br&gt;&lt;font color=&quot;#64748B&quot;&gt;root + worker sessions&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D79B00;fontColor=#1F2937;" vertex="1" parent="debug-zone">
+      <mxGeometry x="35" y="150" width="260" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="runtime-zone" value="debugger-mcp runtime" style="swimlane;startSize=32;rounded=1;fillColor=#F3EEFF;strokeColor=#9673A6;fontColor=#4C2F5B;fontStyle=1;html=1;container=1;pointerEvents=0;" vertex="1" parent="1">
+      <mxGeometry x="435" y="90" width="330" height="510" as="geometry"/>
+    </mxCell>
+    <mxCell id="daemon" value="Shared daemon&lt;br&gt;&lt;font color=&quot;#64748B&quot;&gt;control RPC · 127.0.0.1:4712&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontColor=#1F2937;fontStyle=1;" vertex="1" parent="runtime-zone">
+      <mxGeometry x="35" y="70" width="260" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="proxy" value="DAP proxy&lt;br&gt;&lt;font color=&quot;#64748B&quot;&gt;127.0.0.1:4711&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontColor=#1F2937;fontStyle=1;" vertex="1" parent="runtime-zone">
+      <mxGeometry x="35" y="270" width="260" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="route-note" value="Exact routing by&lt;br&gt;DEBUGGER_MCP_WORKSPACE&lt;br&gt;and root session" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#FFFFFF;strokeColor=#9673A6;fontColor=#4B5563;fontSize=12;" vertex="1" parent="runtime-zone">
+      <mxGeometry x="55" y="400" width="220" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="adapter-zone" value="debugpy adapter groups" style="swimlane;startSize=32;rounded=1;fillColor=#EAF7EA;strokeColor=#82B366;fontColor=#315A24;fontStyle=1;html=1;container=1;pointerEvents=0;" vertex="1" parent="1">
+      <mxGeometry x="830" y="350" width="330" height="250" as="geometry"/>
+    </mxCell>
+    <mxCell id="adapter-a" value="Adapter group A&lt;br&gt;&lt;font color=&quot;#64748B&quot;&gt;one root run + its subprocesses&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#1F2937;" vertex="1" parent="adapter-zone">
+      <mxGeometry x="35" y="60" width="260" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="adapter-b" value="Adapter group B&lt;br&gt;&lt;font color=&quot;#64748B&quot;&gt;one root run + its subprocesses&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#1F2937;" vertex="1" parent="adapter-zone">
+      <mxGeometry x="35" y="150" width="260" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="e-agent-a" value="MCP stdio A" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6C8EBF;strokeWidth=2;endArrow=classic;fontColor=#1F3A5F;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="agent-a" target="daemon">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e-agent-b" value="MCP stdio B" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6C8EBF;strokeWidth=2;endArrow=classic;fontColor=#1F3A5F;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="agent-b" target="daemon">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e-debug-a" value="DAP · 4711" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#D79B00;strokeWidth=2;endArrow=classic;fontColor=#6B4700;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.35;" edge="1" parent="1" source="debug-a" target="proxy">
+      <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="390" y="443"/><mxPoint x="410" y="443"/><mxPoint x="410" y="388"/></Array></mxGeometry>
+    </mxCell>
+    <mxCell id="e-debug-b" value="DAP · 4711" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#D79B00;strokeWidth=2;endArrow=classic;fontColor=#6B4700;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.65;" edge="1" parent="1" source="debug-b" target="proxy">
+      <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="390" y="533"/><mxPoint x="420" y="533"/><mxPoint x="420" y="412"/></Array></mxGeometry>
+    </mxCell>
+    <mxCell id="e-adapter-a" value="workspace A" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#82B366;strokeWidth=2;endArrow=classic;fontColor=#315A24;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.35;entryX=0;entryY=0.5;" edge="1" parent="1" source="proxy" target="adapter-a">
+      <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="790" y="388"/><mxPoint x="790" y="443"/></Array></mxGeometry>
+    </mxCell>
+    <mxCell id="e-adapter-b" value="workspace B" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#82B366;strokeWidth=2;endArrow=classic;fontColor=#315A24;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.65;entryX=0;entryY=0.5;" edge="1" parent="1" source="proxy" target="adapter-b">
+      <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="805" y="412"/><mxPoint x="805" y="533"/></Array></mxGeometry>
+    </mxCell>
+    <mxCell id="e-internal" value="session state / routing" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#9673A6;strokeWidth=2;endArrow=classic;fontColor=#4C2F5B;labelBackgroundColor=#FFFFFF;" edge="1" parent="runtime-zone" source="daemon" target="proxy">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+  </root>
+</mxGraphModel></diagram></mxfile>
